@@ -12,14 +12,15 @@
         <h2 class="logo">Campus Flow</h2>
     </header>
     
-    <form action="" method="POST" enctype="multipart/form-data" class="add-college-form">
+    <form action="" method="POST" enctype="multipart/form-data" class="add-department-form">
         {%csrf_token%}
-        {{college_form}}
-        <button type="submit" class="college-button">Save</button>
+        {{department_form}}
+        <button type="submit" class="department-button">Save</button>
     </form>
 
-    {%for college in colleges%}
-        <br><a href="{% url "college" college.college_name %}">{{college}}</a>
+
+    {%for department in departments%}
+      <br><a href="{%url "department" college.college_name department.department_name %}">{{department}}</a>
     {%endfor%}
 
 </body>

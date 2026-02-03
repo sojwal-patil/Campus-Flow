@@ -23,4 +23,28 @@ class StudentForm(forms.ModelForm):
 class CollegeForm(forms.ModelForm):
     class Meta:
         model = College
-        fields = "__all__"
+        fields = ["college_logo","college_code","college_name","college_address"]
+        labels = {
+            "college_logo" : "College Logo",
+            "college_code" : "Code",
+            "college_name" : "Name",
+            "college_address" : "Address",
+        }
+        widgets = {
+            "college_code" : forms.TextInput(attrs={"placeholder":"Enter College Code"}),
+            "college_name" : forms.TextInput(attrs={"placeholder":"Enter College Name"}),
+            "college_address" : forms.TextInput(attrs={"placeholder":"Enter Address of College"}),
+        }
+
+class DepartmentForm(forms.ModelForm):
+    class Meta:
+        model = Department
+        fields = ["department_name","hod"]
+        labels = {
+            "department_name" : "Department Name",
+            "hod" : "Head Of Department"
+        }
+        widgets = {
+            "department_name" : forms.TextInput(attrs={"placeholder":"Enter Name of Department"}),
+            "hod" : forms.TextInput(attrs={"placeholder":"Enter HOD Name"})
+        }
