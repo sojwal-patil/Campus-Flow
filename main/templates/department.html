@@ -8,7 +8,7 @@
     <title>Campus Flow</title>
 </head>
 <body>
-    <h2 class="logo">Campus Flow</h2>
+        <a href="{% url "index" %}"><h2 class="logo">Campus Flow</h2></a>
 
     <h3>Student Registration</h3>
 
@@ -17,6 +17,18 @@
         {{student_form}}
         <button type="submit" name="student-btn">Save</button>
     </form>
+
+    <div class="flexcenter">
+
+ {%for student in students%}
+    <div class="department-card">
+    <img src="../media/{{student.profilepic}}" alt="" class="college-logo">
+        <h5>{{student.name}}</h5><br>
+        <h6>Date of Birth : {{student.dob}}</h6>
+
+    </div>
+{%endfor%}
+</div>
 
 </body>
 </html>

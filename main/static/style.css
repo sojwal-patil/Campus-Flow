@@ -7,6 +7,7 @@
     font-family: Google Sans Flex;
     color: white;
     text-decoration: none;
+    user-select: none;
 }
 
 a{
@@ -17,7 +18,7 @@ body{
     background-image: linear-gradient(40deg,rgb(0, 0, 28),rgb(0, 27, 27));
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 button{
@@ -87,6 +88,8 @@ h3,h4{
     padding: 10px;
     width: min-content;
     border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.100);
+
 }
 
 .add-college-form input,textarea{
@@ -101,3 +104,62 @@ h3,h4{
     display: block;
 }
 
+.add-department-form{
+    border: 0.5px solid white;
+    padding: 15px;
+    border-radius: 7px;
+    margin: auto;
+    display: block;
+    width: min-content;
+    background-color: rgba(255, 255, 255, 0.100);
+
+}
+
+table{
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.add-department-form input{
+    margin: 10px;
+    background-color: transparent;
+    border: 0.5px solid white;
+    padding: 10px;
+}
+
+.add-department-form button{
+    margin: auto;
+    display: block;
+}
+
+.college-table td,th{
+    border:0.5px solid white;
+    padding: 20px; 
+}
+
+table tr:hover{
+    background-color: rgba(240, 255, 255, 0.100);
+}
+
+.college-logo{
+    width: 70px;
+    pointer-events: none;
+}
+
+.department-card{
+    border: 0.5px solid white;
+    background-color: rgba(255, 255, 255, 0.200);
+    width: max-content;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.flexcenter{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

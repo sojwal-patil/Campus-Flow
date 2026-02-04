@@ -6,21 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "style.css" %}">
     <title>Campus Flow</title>
+    <link rel="shortcut icon" href="{% static "favicon.ico" %}" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/96d552640e.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <h2 class="logo">Campus Flow</h2>
+        <a href="{% url "index" %}"><h2 class="logo">Campus Flow</h2></a>
     </header>
+   
+    <br>
+    <h2 style="text-align:center">-- Register College --</h2> <br>
     
     <form action="" method="POST" enctype="multipart/form-data" class="add-college-form">
         {%csrf_token%}
         {{college_form}}
         <button type="submit" class="college-button">Save</button>
     </form>
+    <br>
 
-    {%for college in colleges%}
-        <br><a href="{% url "college" college.college_name %}">{{college}}</a>
-    {%endfor%}
+    <h2 style="text-align:center">-- All Colleges --</h2>
+
+    <table class="college-table">
+        <tr style="background-color:rgba(240, 255, 255, 0.100)">
+            <th>Logo</th>
+            <th>College Code</th>
+            <th>College Name</th>
+            <th>Principal / Director</th>
+            <th>Address</th>
+            <th>Link</th>
+        </tr>
+
+        {%for college in colleges%}
+        <tr>
+            <td><img src="media/{{college.college_logo}}" alt="" class="college-logo"></td>
+            <td>{{college.college_code}}</td>
+            <td>{{college.college_name}}</td>
+            <td>{{college.college_principal}}</td>
+            <td>{{college.college_address}}</td>
+            <td><a href="{% url "college" college.college_name %}"><i class="fa-solid fa-link"></i> </a></td>
+        </tr>
+        {%endfor%}
+
+    </table>
 
 </body>
 </html>

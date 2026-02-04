@@ -9,9 +9,12 @@
 </head>
 <body>
     <header>
-        <h2 class="logo">Campus Flow</h2>
+        <a href="{% url "index" %}"><h2 class="logo">Campus Flow</h2></a>
     </header>
     
+    <br>
+    <h1 style="text-align:center;"> <img src="media/{{college.college_logo}}" alt="" class="college-logo"> {{college.college_name}}</h1>
+    <br>
     <form action="" method="POST" enctype="multipart/form-data" class="add-department-form">
         {%csrf_token%}
         {{department_form}}
@@ -19,9 +22,21 @@
     </form>
 
 
-    {%for department in departments%}
-      <br><a href="{%url "department" college.college_name department.department_name %}">{{department}}</a>
-    {%endfor%}
+    <br>
+    <h4 style="text-align:center;">Departments</h4>
+    
+<div class="flexcenter">
+
+ {%for department in departments%}
+    <a href="{%url "department" college.college_name department.department_name %}">
+    <div class="department-card">
+    
+        <h5>{{department.department_name}}</h5><br>
+        <h6>HOD : {{department.hod}}</h6>
+    </div></a>
+{%endfor%}
+</div>
+
 
 </body>
 </html>

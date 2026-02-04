@@ -6,18 +6,19 @@ class College(models.Model):
     college_code = models.CharField(max_length=5,unique=True)
     college_name = models.CharField(max_length=100)
     college_address = models.TextField()
+    college_principal = models.CharField(max_length=50)
     def __str__(self):
         return self.college_name
 
 class Department(models.Model):
-    department_name = models.CharField(max_length=50)
+    department_name = models.CharField(max_length=50,unique=True)
     college = models.ForeignKey(College,on_delete=models.CASCADE)
     hod = models.CharField(max_length=50)
     def __str__(self):
         return self.department_name
 
 class Faculty(models.Model):
-    fid = models.IntegerField(max_length=5,unique=True)
+    fid = models.IntegerField(unique=True)
     name = models.CharField(max_length=50)
     profilepic = models.ImageField(upload_to="facultyprofilepic")
     department = models.ForeignKey(Department,on_delete=models.CASCADE)
@@ -27,7 +28,7 @@ class Faculty(models.Model):
 
 class Student(models.Model):
     profilepic = models.ImageField(upload_to="studentprofiepic/")
-    sid = models.IntegerField(max_length=5,unique=True)
+    sid = models.IntegerField(unique=True)
     name = models.CharField(max_length=50)
     dob = models.DateField()
     address = models.CharField(max_length=200)
@@ -38,7 +39,7 @@ class Student(models.Model):
 
 class Staff(models.Model):
     profilepic = models.ImageField(upload_to="staffprofilepic")
-    stid = models.IntegerField(max_length=5,unique=True)
+    stid = models.IntegerField(unique=True)
     name = models.CharField(max_length=50)
     college = models.ForeignKey(College,on_delete=models.CASCADE)
     Department = models.ForeignKey(Department,on_delete=models.CASCADE)

@@ -23,17 +23,19 @@ class StudentForm(forms.ModelForm):
 class CollegeForm(forms.ModelForm):
     class Meta:
         model = College
-        fields = ["college_logo","college_code","college_name","college_address"]
+        fields = ["college_logo","college_code","college_name","college_address","college_principal"]
         labels = {
             "college_logo" : "College Logo",
             "college_code" : "Code",
             "college_name" : "Name",
             "college_address" : "Address",
+            "college_principal" : "Principal"
         }
         widgets = {
             "college_code" : forms.TextInput(attrs={"placeholder":"Enter College Code"}),
             "college_name" : forms.TextInput(attrs={"placeholder":"Enter College Name"}),
             "college_address" : forms.TextInput(attrs={"placeholder":"Enter Address of College"}),
+            "college_principal" : forms.TextInput(attrs={"placeholder":"Enter Name of Principal"})
         }
 
 class DepartmentForm(forms.ModelForm):
