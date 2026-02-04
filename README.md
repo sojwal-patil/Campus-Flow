@@ -61,6 +61,44 @@ campus-flow/
 └── README.md
 ```
 
+
+---
+
+## ⚙️ Installation & Setup
+
+Follow these steps to run the project locally:
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/your-username/campus-flow.git
+cd campus-flow
+```
+
+### Create Virtual Environment
+```bash
+python -m venv venv
+```
+### Activate
+```bash
+venv\Scripts\activate
+```
+### Install Dependencies 
+```bash
+pip install django pillow 
+```
+
+### Make Migrations and Migrate
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### Run Server
+```bash
+python manage.py runserver
+```
+
 ## ⚠️ Limitations
 
 - No authentication system
